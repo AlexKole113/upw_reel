@@ -1,5 +1,6 @@
 .form {
     height: 85%;
+    text-align: center;
 }
 .input {
     outline: none;
@@ -9,7 +10,7 @@
     font-family: var(--font-family);
     letter-spacing: 2px;
     display: block;
-    margin: 9.5% auto 8%;
+    margin: 8.5% auto 8%;
     padding: 2% 4%;
     width: 63%;
     border-radius: 11px;
@@ -24,11 +25,12 @@
     position: relative;
 }
 .button {
+    cursor: pointer;
     background-color: var(--color-back-red);
     color: #fff;
     text-transform: uppercase;
     border: 0;
-    display: block;
+    display: inline-block;
     margin: 3% auto;
     font-size: calc( var(--font-size-xl ) * .6 );
     letter-spacing: 2px;
