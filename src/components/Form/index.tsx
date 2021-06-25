@@ -2,11 +2,6 @@ import styles from './styles/index.css'
 import {FC, FormEvent, ChangeEvent, useState} from "react";
 import isCorrectValue from "@/utils/validators/isCorrectValue";
 
-//aasets
-import image from '../../../assets/reel-frame.png'
-
-
-
 const Form:FC<{[key:string]:any}> = ({children, action}) => {
 
     const [formState,  setFormState ] = useState({invalidValue: false})
@@ -45,7 +40,7 @@ const Form:FC<{[key:string]:any}> = ({children, action}) => {
                    value={inputValue}
             />
 
-            <div style={{backgroundImage: `url(${image})`}} className={styles.mainComponent}>
+            <div className={styles.mainComponent}>
                 { children }
             </div>
 

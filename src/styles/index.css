@@ -6,9 +6,9 @@
     --color-back-red:#eb1e25;
     --color-shadow: #0000003d;
     --color-text-black: #000;
-    --font-size-xl: 1.5vw;
+    --font-size-xl: 3vw;
     --font-family: 'Mulish', sans-serif;
-    --slot-item-height:calc(12.8vw * .80 - 10px);
+    --slot-item-height: calc(21vw - 10px);
     position: fixed;
     top: 0;
     left: 0;
@@ -23,8 +23,8 @@
     box-sizing: border-box;
 }
 .container {
-    width: 37vw;
-    height: 30.5vw;
+    width: 74vw;
+    height: 61vw;
     background: white;
     border-radius: 4%;
     box-shadow: 3px 2px 12px 1px var(--color-shadow);
@@ -42,6 +42,17 @@
 
 .overflowHidden {
     overflow: hidden;
+}
+
+@media (min-width: 991px) {
+    .reel {
+        --font-size-xl: 1.5vw;
+        --slot-item-height: calc(10.33vw - 10px);
+    }
+    .container {
+        width: 37vw;
+        height: 30.5vw;
+    }
 }
 
 
