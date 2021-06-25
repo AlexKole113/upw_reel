@@ -40,7 +40,7 @@ export default ({ gameID }:{ gameID:string }) => {
 
     useEffect(()=>{
         if( appState.gameWasStart ){
-         const randomIndex  =  Math.round(Math.random() * slots.length - 1 )
+         const randomIndex  =  Math.round(Math.random() * (slots.length - 1) );
          const win          = slots[ randomIndex ];
          setAppState((prevState)=>({...prevState, gameWasStart: false, win }));
          setTimeout(()=>{
@@ -53,13 +53,17 @@ export default ({ gameID }:{ gameID:string }) => {
     },[appState.gameWasStart])
 
     const sendEmailAndStartGame = (value:string) => {
-        if( appState.win ) return;
+        if( appState.win !== null ) return;
         setAppState((prevState) =>({...prevState, loading:true }))
 
         //TODO Sent Lead if OK then dispatch gameWasStart
-        console.log(value);
 
-        setAppState((prevState) =>({...prevState, gameWasStart: true }))
+        setTimeout(()=>{
+            console.log(value)
+            setAppState((prevState) =>({...prevState, gameWasStart: true }))
+        },10)
+
+
 
     }
     const closeAndReset = () =>{
