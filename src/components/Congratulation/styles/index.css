@@ -1,0 +1,46 @@
+.congratulation {
+    text-align: center;
+    height: 80%;
+    display: flex;
+    flex-flow: column;
+    transform: scale(0) rotate(-500deg);
+    transition: all .6s ease-out;
+}
+
+.congratulation.show{
+    transform: scale(1) rotate(0deg);
+}
+
+.title {
+    font-size: calc(var(--font-size-xl) * 1.8);
+}
+
+.promoCodeBlock {
+    margin: auto;
+}
+
+.promocodeTitle {
+    font-size: calc( var(--font-size-xl) );
+}
+
+.promocodeName {
+    font-size: calc( var(--font-size-xl));
+    font-weight: 800;
+}
+
+.btnBlock {
+    margin-top: auto;
+}
+
+.button {
+    text-decoration: none;
+    background-color: var(--color-back-red);
+    color: #fff;
+    text-transform: uppercase;
+    border: 0;
+    display: inline-block;
+    font-size: calc(var(--font-size-xl)*0.6);
+    letter-spacing: 2px;
+    padding: 3% 10%;
+    border-radius: 10px;
+}

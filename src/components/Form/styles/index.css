@@ -1,0 +1,58 @@
+.form {
+    height: 85%;
+}
+.input {
+    outline: none;
+    background: var(--color-back-light-gray);
+    border: 2px solid transparent;
+    font-size: calc( var(--font-size-xl) * .5);
+    font-family: var(--font-family);
+    letter-spacing: 2px;
+    display: block;
+    margin: 9.5% auto 8%;
+    padding: 2% 4%;
+    width: 63%;
+    border-radius: 11px;
+}
+.mainComponent {
+    height: 12.8vw;
+    width: 92%;
+    margin: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.button {
+    background-color: var(--color-back-red);
+    color: #fff;
+    text-transform: uppercase;
+    border: 0;
+    display: block;
+    margin: 3% auto;
+    font-size: calc( var(--font-size-xl ) * .6 );
+    letter-spacing: 2px;
+    padding: 3% 10%;
+    border-radius: 10px;
+}
+
+
+.invalid {
+    border: 2px solid var(--color-back-red);
+    animation: invalid .3s forwards ;
+}
+
+
+@keyframes invalid {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(20px);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    75% {
+        transform: translateX(0px);
+    }
+}

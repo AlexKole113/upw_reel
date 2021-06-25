@@ -1,0 +1,10 @@
+.slot{
+    position: relative;
+    height: var(--slot-item-height);
+    background: linear-gradient(180deg, var(--color-back-dark-gray) 0%, white 40%, white 60%, var(--color-back-dark-gray) 100%);
+    overflow: hidden;
+}
+.reelItem {
+    position: absolute;
+    bottom: 0;
+}

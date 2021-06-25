@@ -1,0 +1,11 @@
+.slot {
+    height: var(--slot-item-height);
+    display: grid;
+    place-content: center;
+}
+.slot img {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
+}

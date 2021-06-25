@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600&display=swap');
+.reel {
+    --color-back-light-blue: #f0f6ff;
+    --color-back-light-gray: #f0f0f0;
+    --color-back-dark-gray: #e4e2e3;
+    --color-back-red:#eb1e25;
+    --color-shadow: #0000003d;
+    --color-text-black: #000;
+    --font-size-xl: 1.5vw;
+    --font-family: 'Mulish', sans-serif;
+    --slot-item-height:calc(12.8vw * .80 - 10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-back-light-blue);
+    display: grid;
+    place-content: center;
+    z-index: 999999;
+}
+.reel * {
+    box-sizing: border-box;
+}
+.container {
+    width: 37vw;
+    height: 30.5vw;
+    background: white;
+    border-radius: 4%;
+    box-shadow: 3px 2px 12px 1px var(--color-shadow);
+    position: relative;
+    padding: 13% 16% 0;
+}
+.cta {
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size-xl) * .6) ;
+}
+
+.dnone {
+    display: none!important;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+
