@@ -10,7 +10,7 @@ const Form:FC<{[key:string]:any}> = ({children, action}) => {
     const submitHandler = (e:FormEvent) => {
         e.preventDefault();
         if( isCorrectValue( inputValue ) ){
-            action(inputValue)
+            action( inputValue )
         } else {
             new Promise((res)=>{
                 setFormState((prevState)=>({...prevState, invalidValue: true}))

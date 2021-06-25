@@ -53,15 +53,17 @@ export default ({ gameID }:{ gameID:string }) => {
     },[appState.gameWasStart])
 
     const sendEmailAndStartGame = (value:string) => {
-        if( appState.win || !value ) return;
+        if( appState.win ) return;
         setAppState((prevState) =>({...prevState, loading:true }))
 
         //TODO Sent Lead if OK then dispatch gameWasStart
+        console.log(value);
+
         setAppState((prevState) =>({...prevState, gameWasStart: true }))
 
     }
     const closeAndReset = () =>{
-        setAppState(()=> initialState)
+        setAppState(()=> ({...initialState}))
         setMessage(()=>({congratulation: null, tryAgain: null}))
     }
     const setEmailWasSent = () => {
