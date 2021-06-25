@@ -1,11 +1,9 @@
 import styles from './styles/index.css'
 
-
 //asets collection
 import image5off from '../../../assets/5.png';
 import image25off from '../../../assets/25.png';
 import imageFreeShipment from '../../../assets/free.png';
-
 
 
 const Slot = ({type}:{type:string}) => {
