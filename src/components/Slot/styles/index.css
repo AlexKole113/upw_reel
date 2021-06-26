@@ -1,11 +1,18 @@
 .slot {
     height: var(--slot-item-height);
-    display: grid;
-    place-content: center;
+    position: relative;
 }
-.slot img {
-    width: 80%;
-    height: auto;
-    display: block;
-    margin: auto;
+.label {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    right: 15%;
+    bottom: 35%;
 }
+
+
