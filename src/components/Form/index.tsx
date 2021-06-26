@@ -63,9 +63,7 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
                 ( !formState.submitWasActivate ) ? <input className={styles.button} type="submit" value="PLAY" /> : ''
             }
             {
-
                 ( appState.win && appState.win[0] === 'no luck' && showTryBtn && appState.attempts > 0 ) ? <a className={styles.button} onClick={(e)=>{e.preventDefault(); tryAgain(); setShowBtn(() => '' ) }} href={`#`}>{`Try again! You have ${appState.attempts} attempts`}</a> : ''
-
             }
 
 
