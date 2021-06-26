@@ -1,6 +1,9 @@
 .slot {
     height: var(--slot-item-height);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .label {
     color: #ffffff;
@@ -9,10 +12,11 @@
     justify-content: center;
     font-size: var(--font-size-xl);
     position: absolute;
-    top: 35%;
+    min-height: 32%;
     left: 13%;
     right: 12%;
-    bottom: 32%;
+    word-break: break-all;
+    white-space: break-spaces;
 }
 
 
