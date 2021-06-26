@@ -22,14 +22,7 @@ export default ({ gameID }:{ gameID:string }) => {
     useEffect(() => {
         //TODO: getGame data ? if ok addEventListener
         window.addEventListener('mouseout', popUpStarter )
-        return(
-            () => {
-                window.removeEventListener('mouseout', popUpStarter );
-            }
-        )
-    },[ appState.active ] );
 
-    useEffect(()=>{
         if( appState.active ){
             //TODO: Send Impression
             document.querySelector('html')?.classList.add(styles.overflowHidden)
@@ -37,7 +30,14 @@ export default ({ gameID }:{ gameID:string }) => {
             document.querySelector('html')?.classList.remove(styles.overflowHidden)
         }
 
-    },[appState.active])
+
+        return(
+            () => {
+                window.removeEventListener('mouseout', popUpStarter );
+            }
+        )
+    },[ appState.active ] );
+
 
     useEffect(()=>{
         if( appState.gameWasStart && appState.attempts > 0 ){
@@ -103,7 +103,7 @@ export default ({ gameID }:{ gameID:string }) => {
         setMessage(() => ({ congratulation: null }))
     }
     const setEmailWasSent = () => {
-        setAppState((prevState)=>({...prevState, emailWasSent:true}));
+        setAppState((prevState)=>({...prevState, active:false, emailWasSent:true}));
     }
 
     if( appState.emailWasSent ) return null;
