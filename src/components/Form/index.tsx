@@ -50,7 +50,7 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
             <input onChange={typeHandler}
                    className={`${styles.input} ${ ( formState.invalidValue ) ? styles.invalid : '' }`}
                    placeholder="Email Address"
-                   type="text"
+                   type="email"
                    value={inputValue}
             />
 
