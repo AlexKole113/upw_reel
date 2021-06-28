@@ -134,6 +134,8 @@ export default ({ gameID }:{ gameID:string }) => {
         setAppState((prevState)=>({...prevState, active:false, emailWasSent:true}));
     }
 
+    console.log(slots)
+
     if( appState.emailWasSent || appState.error ) return null;
     return (
         <section className={`${styles.reel} ${ !appState.active ? styles.dnone : '' } ` }>
