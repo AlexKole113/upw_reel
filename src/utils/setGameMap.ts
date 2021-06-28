@@ -14,6 +14,8 @@ const setGameMap = (settings:{name: string, color: string, coupon: string, textC
         if(!contains) uniqResult.push(result[i])
     }
 
+    console.log(uniqResult);
+
     return uniqResult;
 }
 

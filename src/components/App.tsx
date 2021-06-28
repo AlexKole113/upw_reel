@@ -68,7 +68,7 @@ export default ({ gameID }:{ gameID:string }) => {
         if( appState.gameWasStart && appState.attempts > 0 ){
             setAppState((prevState)=>({...prevState, attempts: prevState.attempts - 1 }))
 
-        if( isNoLuck(.9 ) ) {
+        if( isNoLuck(.5 ) ) {
             setAppState((prevState)=>({...prevState, gameWasStart: false, win: ['no luck',''] }));
             return;
         }
