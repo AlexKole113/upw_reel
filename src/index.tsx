@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom';
 import App from './components/App'
 
 //in test
-const EMBED_SRC = 'https://www.google.com/';
-const CSS_URL   = '';
+const EMBED_SRC = 'https://condescending-curran-bf301a.netlify.app/dist/assets/js/main.js?gameID=';
+const CSS_URL   = 'https://condescending-curran-bf301a.netlify.app/dist/assets/css/main.css';
 // TODO: Change SRC Arrow and Spinner Images !
 
 

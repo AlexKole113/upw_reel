@@ -24,7 +24,6 @@ export default ({ gameID }:{ gameID:string }) => {
     },[ appState.active ])
 
 
-
     useEffect(() => {
         if( !slots.length) {
             // get Game data
@@ -150,7 +149,6 @@ export default ({ gameID }:{ gameID:string }) => {
                         </Form>
                     </div>
                 ) : <><CongratulationBackground /><Congratulation text={message.congratulation} promocode={ appState.win[1] } action={setEmailWasSent} /></> }
-
 
             </div>
         </section>
