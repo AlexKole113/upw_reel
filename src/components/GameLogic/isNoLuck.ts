@@ -1,2 +1,2 @@
-const isNoLuck = () => (Math.random() > .5);
+const isNoLuck = ( noLuckPercentage:number ) => (Math.random() > ( 1 - noLuckPercentage ) );
 export default isNoLuck;

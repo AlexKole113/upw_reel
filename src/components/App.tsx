@@ -43,11 +43,10 @@ export default ({ gameID }:{ gameID:string }) => {
         if( appState.gameWasStart && appState.attempts > 0 ){
             setAppState((prevState)=>({...prevState, attempts: prevState.attempts - 1 }))
 
-        if( isNoLuck() ) {
+        if( isNoLuck(.5 ) ) {
             setAppState((prevState)=>({...prevState, gameWasStart: false, win: ['no luck',''] }));
             return;
         }
-
 
          const randomIndex  = Math.round(Math.random() * (slots.length - 1) );
          const win          = slots[ randomIndex ];

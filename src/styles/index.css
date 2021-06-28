@@ -7,7 +7,7 @@
     --color-shadow: #0000003d;
     --color-text-black: #000;
     --font-size-xl: 3vw;
-    --font-family: 'Mulish', sans-serif;
+    --font-family: 'Roboto Light', sans-serif;
     --slot-item-height: calc(21vw - 10px);
     position: fixed;
     top: 0;

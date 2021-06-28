@@ -34,9 +34,16 @@
     display: inline-block;
     margin: 3% auto;
     font-size: calc( var(--font-size-xl ) * .6 );
+    font-family: var(--font-family);
     letter-spacing: 2px;
     padding: 3% 10%;
     border-radius: 10px;
+}
+
+.allNoLuck {
+    display: block;
+    margin: 5% auto;
+    font-weight: 800;
 }
 
 

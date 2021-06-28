@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-xl);
+    font-family: var(--font-family);
     position: absolute;
     min-height: 32%;
     left: 13%;

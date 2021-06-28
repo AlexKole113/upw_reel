@@ -65,6 +65,9 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
             {
                 ( appState.win && appState.win[0] === 'no luck' && showTryBtn && appState.attempts > 0 ) ? <a className={styles.button} onClick={(e)=>{e.preventDefault(); tryAgain(); setShowBtn(() => '' ) }} href={`#`}>{`Try again! You have ${appState.attempts} attempts`}</a> : ''
             }
+            {
+                ( appState.win && appState.win[0] === 'no luck' && showTryBtn && appState.attempts === 0 ) ? <span className={styles.allNoLuck}>No luck this time :( Please try again later</span> : ''
+            }
 
 
         </form>
