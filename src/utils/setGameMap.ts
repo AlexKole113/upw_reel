@@ -1,6 +1,8 @@
 const setGameMap = (settings:{name: string, color: string, coupon: string, textColor: string, }[]) => {
     const result = settings.map( ({name,coupon, color,textColor}) => [name, coupon, color,textColor] );
 
+    console.log(settings)
+
     // Does it need to be uniqueized ?
     let uniqResult = [];
     for(let i = 0; i < result.length; i++){
@@ -13,6 +15,8 @@ const setGameMap = (settings:{name: string, color: string, coupon: string, textC
         }
         if(!contains) uniqResult.push(result[i])
     }
+
+    console.log(uniqResult)
     return uniqResult;
 }
 
