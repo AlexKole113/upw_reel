@@ -1,7 +1,7 @@
 import styles from './styles/index.css'
 import {FC, FormEvent, ChangeEvent, useState, useEffect} from "react";
 import isCorrectValue from "@/utils/validators/isCorrectValue";
-
+declare const window: any;
 const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => {
 
     const [formState,  setFormState ]    = useState({invalidValue: false, submitWasActivate: false})
@@ -54,7 +54,7 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
                    value={inputValue}
             />
 
-            <div className={styles.mainComponent}>
+            <div style={{background:`url(${window.EMBED_REEL_PATH}/assets/reel-frame.png)`}} className={styles.mainComponent}>
                 { children }
             </div>
 
