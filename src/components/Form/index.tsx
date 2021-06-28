@@ -54,7 +54,7 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
                    value={inputValue}
             />
 
-            <div style={{background:`url(${window.EMBED_REEL_PATH}/assets/reel-frame.png)`}} className={styles.mainComponent}>
+            <div style={{backgroundImage:`url(${window.EMBED_REEL_PATH}/assets/reel-frame.png)`}} className={styles.mainComponent}>
                 { children }
             </div>
 
