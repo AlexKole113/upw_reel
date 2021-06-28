@@ -42,7 +42,6 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
 
     const typeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
         if(formState.invalidValue)  setFormState((prevState)=>({...prevState, invalidValue: false}))
-
         setInputValue(e.target.value)
     }
 

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import styles from './styles/index.css'
 
-const Congratulation = ({text,promocode,action}:{text:string, promocode:string, action:()=>void}) => {
+const Congratulation = ({text, promocode, action}:{text:string, promocode:string, action:()=>void}) => {
 
     const [show,setShow] = useState('')
 

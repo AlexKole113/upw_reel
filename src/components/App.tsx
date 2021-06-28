@@ -5,26 +5,53 @@ import {useCallback, useEffect, useState} from "react";
 import Congratulation from "@/components/Congratulation";
 import Loader from "@/components/Loader";
 import CongratulationBackground from "@/components/CongratulationBackground";
+import isNoLuck from "@/components/GameLogic/isNoLuck";
+import setGameMap from "@/utils/setGameMap";
+import API from "@/api";
+
 
 import styles from '../styles/index.css'
-import isNoLuck from "@/components/GameLogic/isNoLuck";
+
 
 export default ({ gameID }:{ gameID:string }) => {
-    const slots                   = [ ['5%','5CODE'], ['10%','10CODE'], ['15%','15CODE'] ];
+
     const initialState            = {gameID, active:false, attempts: 3, gameWasStart: false, win: null, emailWasSent:false, loading: false, error: false, success:false }
     const [appState, setAppState] = useState<{[key:string]:any}>( initialState )
     const [message, setMessage]   = useState<{[key:string]:null|string}>({congratulation: null });
-
+    const [slots,setSlots]        = useState<string[][]>([])
     const popUpStarter = useCallback(( e:MouseEvent ) => {
         if ( e.relatedTarget === null && !appState.active ) setAppState((prevState)=>({...prevState, active: true}))
     },[ appState.active ])
 
+
+
     useEffect(() => {
-        //TODO: getGame data ? if ok addEventListener
-        window.addEventListener('mouseout', popUpStarter )
+        if( !slots.length) {
+            // get Game data
+            API.getGameData( gameID )
+                .then( r => r.json() )
+                .then( ({ settings }) => {
+                    setSlots(() => setGameMap( settings ) );
+                    window.addEventListener('mouseout', popUpStarter )
+                })
+                .catch( () => {
+                    setAppState((prevState) => ({
+                        ...prevState,
+                        error: true
+                    }))
+                })
+        } else {
+            window.addEventListener('mouseout', popUpStarter );
+        }
 
         if( appState.active ){
-            //TODO: Send Impression
+            // Send Impression
+            if( !appState.emailWasSent && gameID ) {
+                API.sendImpression(appState.gameID)
+                    .catch((e)=>{
+                        console.log(e)
+                    })
+            }
             document.querySelector('html')?.classList.add(styles.overflowHidden)
         } else {
             document.querySelector('html')?.classList.remove(styles.overflowHidden)
@@ -37,7 +64,6 @@ export default ({ gameID }:{ gameID:string }) => {
             }
         )
     },[ appState.active ] );
-
 
     useEffect(()=>{
         if( appState.gameWasStart && appState.attempts > 0 ){
@@ -63,21 +89,25 @@ export default ({ gameID }:{ gameID:string }) => {
         if( appState.win !== null ) return;
         if( appState.loading || appState.gameWasStart ) return;
 
-        //TODO Sent Lead if OK then dispatch gameWasStart
-
-        new Promise((resolve) => {
-            setAppState((prevState) =>({...prevState, loading:true }))
-            setTimeout(()=>{
-                console.log(value)
-                setAppState((prevState) =>({...prevState, loading:false}))
-                resolve(null)
-            },500 )
-        })
-        .then(()=>{
-            setTimeout(()=>{
-                setAppState((prevState) =>({...prevState, gameWasStart: true }))
-            },400)
-        })
+        //Sent Lead if OK then dispatch gameWasStart
+        setAppState((prevState) =>({...prevState, loading:true }))
+        API.sendLead(appState.gameID, value)
+            .then(()=>{
+                new Promise((resolve) => {
+                    setTimeout(()=>{
+                        setAppState((prevState) =>({...prevState, loading:false}))
+                        resolve(null)
+                    },500 )
+                })
+                    .then(()=>{
+                        setTimeout(()=>{
+                            setAppState((prevState) =>({...prevState, gameWasStart: true }))
+                        },400)
+                    })
+            })
+            .catch((e)=>{
+                console.log(e)
+            })
     }
     const tryAgain = () => {
         if( appState.loading || appState.gameWasStart ) return;
@@ -105,7 +135,7 @@ export default ({ gameID }:{ gameID:string }) => {
         setAppState((prevState)=>({...prevState, active:false, emailWasSent:true}));
     }
 
-    if( appState.emailWasSent ) return null;
+    if( appState.emailWasSent || appState.error ) return null;
     return (
         <section className={`${styles.reel} ${ !appState.active ? styles.dnone : '' } ` }>
             <div className={styles.container}>
