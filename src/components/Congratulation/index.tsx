@@ -15,7 +15,8 @@ const Congratulation = ({text, promocode, action}:{text:string, promocode:string
     return(
 
         <div className={`${styles.congratulation} ${show}`}>
-            <h3 className={styles.title}>You Win: {text} </h3>
+            <h3 className={styles.title}> You Win </h3>
+            <div className={styles.couponName}>{text}</div>
             <div className={styles.promoCodeBlock}>
                 <p className={styles.promocodeTitle}>Your code:</p>
                 <p className={styles.promocodeName}> {promocode} </p>

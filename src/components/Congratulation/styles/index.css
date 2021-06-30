@@ -12,8 +12,14 @@
 }
 
 .title {
-    font-size: calc(var(--font-size-xl) * 1.8);
+    font-size: calc(var(--font-size-xl) * 1.1);
     font-family: var(--font-family);
+}
+
+.couponName {
+    font-size: calc( var(--font-size-xl) * 2 );
+    margin: 12% auto;
+    font-weight: 800;
 }
 
 .promoCodeBlock {
@@ -21,14 +27,16 @@
 }
 
 .promocodeTitle {
-    font-size: calc( var(--font-size-xl) );
+    font-size: calc( var(--font-size-xl) * .9);
     font-family: var(--font-family);
+    margin: 0 auto;
 }
 
 .promocodeName {
-    font-size: calc( var(--font-size-xl));
+    font-size: calc( var(--font-size-xl) * .9);
     font-family: var(--font-family);
     font-weight: 800;
+    margin: 20% auto;
 }
 
 .btnBlock {
