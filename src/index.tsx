@@ -21,7 +21,7 @@ const link = document.createElement('link');
 link.setAttribute('rel','stylesheet');
 link.setAttribute('href', CSS_URL  );
 
-// document.head.append( link )
+document.head.append( link )
 document.body.append( root )
 
 const gameID = document.querySelector(`[src^="${EMBED_SRC}"]`)
