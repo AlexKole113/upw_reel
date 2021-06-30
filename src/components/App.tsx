@@ -3,7 +3,6 @@ import Form from "@/components/Form";
 import ReelGroup from "@/components/ReelGroup";
 import {useCallback, useEffect, useState} from "react";
 import Congratulation from "@/components/Congratulation";
-import Loader from "@/components/Loader";
 import CongratulationBackground from "@/components/CongratulationBackground";
 import isNoLuck from "@/components/GameLogic/isNoLuck";
 import setGameMap from "@/utils/setGameMap";
@@ -145,7 +144,7 @@ export default ({ gameID }:{ gameID:string }) => {
                     <div>
                         <div className={styles.cta}> Enter your email address to find out if your’re the winner! </div>
                         <Form action={ sendEmailAndStartGame } tryAgain={tryAgain} appState={appState} >
-                            { appState.loading ? <Loader /> : <ReelGroup winLabel={ appState.win ? appState.win[0] : null } slots={slots} /> }
+                            <ReelGroup isLoading={appState.loading} winLabel={ appState.win ? appState.win[0] : null } slots={slots} />
                         </Form>
                     </div>
                 ) : <><CongratulationBackground /><Congratulation text={message.congratulation} promocode={ appState.win[1] } action={setEmailWasSent} /></> }

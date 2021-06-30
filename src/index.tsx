@@ -21,7 +21,7 @@ const link = document.createElement('link');
 link.setAttribute('rel','stylesheet');
 link.setAttribute('href', CSS_URL  );
 
-document.head.append( link )
+// document.head.append( link )
 document.body.append( root )
 
 const gameID = document.querySelector(`[src^="${EMBED_SRC}"]`)
@@ -29,6 +29,8 @@ const gameID = document.querySelector(`[src^="${EMBED_SRC}"]`)
     ?.split( EMBED_SRC )[1];
 
 
+// const testGAMEID = '4sahEPkMajd4Q6ueiFar';
+// console.log(gameID);
 if( gameID && root ) {
     ReactDOM.render(
         <App gameID={ gameID } />,

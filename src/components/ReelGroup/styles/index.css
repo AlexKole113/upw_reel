@@ -1,12 +1,31 @@
 .reelGroup {
+    position: absolute;
+    top: 7%;
+    right: 4%;
+    bottom: 13%;
+    left:4%;
+}
+.reelContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
     padding: 5px;
     overflow: hidden;
     position: absolute;
-    top: 7%;
-    right: 4%;
-    bottom: 13%;
-    left:4%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.loaderContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    padding: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }

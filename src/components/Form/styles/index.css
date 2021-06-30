@@ -40,6 +40,21 @@
     border-radius: 10px;
 }
 
+.fakeButton {
+    background-color: var(--color-back-dark-gray);
+    color: #fff;
+    text-transform: uppercase;
+    border: 0;
+    display: inline-block;
+    margin: 3% auto;
+    font-size: calc( var(--font-size-xl ) * .6 );
+    font-family: var(--font-family);
+    letter-spacing: 2px;
+    padding: 3% 10%;
+    border-radius: 10px;
+    opacity: .8;
+}
+
 .allNoLuck {
     display: block;
     margin: 5% auto;
