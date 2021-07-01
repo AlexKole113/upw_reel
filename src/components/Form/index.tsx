@@ -68,7 +68,7 @@ const Form:FC<{[key:string]:any}> = ({children, action, tryAgain, appState}) => 
                 ( appState.win && appState.win[0] === 'no luck' && showTryBtn && appState.attempts === 0 ) ? <span className={styles.allNoLuck}>No luck this time :( Please try again later</span> : ''
             }
             {
-                ( formState.submitWasActivate && !showTryBtn ) ? <span className={styles.fakeButton}>Processing...</span> : ''
+                ( formState.submitWasActivate && !showTryBtn ) ? <span className={styles.fakeButton}>spinning...</span> : ''
             }
 
 

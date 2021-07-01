@@ -41,7 +41,6 @@ export default ({ gameID }:{ gameID:string }) => {
         } else {
             window.addEventListener('mouseout', popUpStarter );
         }
-
         if( appState.active ){
             // Send Impression
             if( !appState.emailWasSent && gameID ) {
@@ -54,8 +53,6 @@ export default ({ gameID }:{ gameID:string }) => {
         } else {
             document.querySelector('html')?.classList.remove(styles.overflowHidden)
         }
-
-
         return(
             () => {
                 window.removeEventListener('mouseout', popUpStarter );
@@ -67,7 +64,8 @@ export default ({ gameID }:{ gameID:string }) => {
         if( appState.gameWasStart && appState.attempts > 0 ){
             setAppState((prevState)=>({...prevState, attempts: prevState.attempts - 1 }))
 
-        if( isNoLuck(.5 ) ) {
+        // luck setting ;)
+        if( appState.attempts > 1 && isNoLuck(.6 ) ) {
             setAppState((prevState)=>({...prevState, gameWasStart: false, win: ['no luck',''] }));
             return;
         }
