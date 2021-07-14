@@ -1,7 +1,7 @@
 import CloseButton from "@/components/CloseButton";
 import Form from "@/components/Form";
 import ReelGroup from "@/components/ReelGroup";
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Congratulation from "@/components/Congratulation";
 import CongratulationBackground from "@/components/CongratulationBackground";
 import isNoLuck from "@/components/GameLogic/isNoLuck";
@@ -18,19 +18,19 @@ export default ({ gameID }:{ gameID:string }) => {
     const [appState, setAppState] = useState<{[key:string]:any}>( initialState )
     const [message, setMessage]   = useState<{[key:string]:null|string}>({congratulation: null });
     const [slots,setSlots]        = useState<string[][]>([])
-    const popUpStarter = useCallback(( e:MouseEvent ) => {
-        if ( e.relatedTarget === null && !appState.active ) setAppState((prevState)=>({...prevState, active: true}))
-    },[ appState.active ])
+    // const popUpStarter = useCallback(( e:MouseEvent ) => {
+    //     if ( e.relatedTarget === null && !appState.active ) setAppState((prevState)=>({...prevState, active: true}))
+    // },[ appState.active ])
 
 
     useEffect(() => {
         if( !slots.length) {
             // get Game data
             API.getGameData( gameID )
-                .then( r => r.json() )
                 .then( ({ settings }) => {
                     setSlots(() => setGameMap( settings ) );
-                    window.addEventListener('mouseout', popUpStarter )
+                    // window.addEventListener('mouseout', popUpStarter )
+                    setAppState((prevState)=>({...prevState, active: true}))
                 })
                 .catch( () => {
                     setAppState((prevState) => ({
@@ -39,7 +39,7 @@ export default ({ gameID }:{ gameID:string }) => {
                     }))
                 })
         } else {
-            window.addEventListener('mouseout', popUpStarter );
+            // window.addEventListener('mouseout', popUpStarter );
         }
         if( appState.active ){
             // Send Impression
@@ -55,7 +55,7 @@ export default ({ gameID }:{ gameID:string }) => {
         }
         return(
             () => {
-                window.removeEventListener('mouseout', popUpStarter );
+                // window.removeEventListener('mouseout', popUpStarter );
             }
         )
     },[ appState.active ] );
